@@ -12,3 +12,14 @@ function getComputerChoice(){
   return choice;
 }
 
+function getHumanChoice(){
+  let choice = prompt('Type one of "rock", "paper", or "scissors"').toLowerCase()
+
+  if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
+   alert('You can type only one of "rock", "paper", or "scissors"') 
+    return getHumanChoice();
+  } else {
+    return choice;
+  }
+}
+
