@@ -22,3 +22,20 @@ function getHumanChoice() {
     return choice;
   }
 }
+
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    console.log('Draw!');
+  } else if (
+    (humanChoice === 'rock' && computerChoice === 'scissors') ||
+    (humanChoice === 'paper' && computerChoice === 'rock') ||
+    (humanChoice === 'scissors' && computerChoice === 'paper')
+  ) {
+    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+  } else {
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+  }
+}
