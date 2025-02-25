@@ -61,14 +61,14 @@ function playGame() {
 
   if (humanScore > computerScore) {
     console.log(
-      `You win the GAME! Your score is ${humanScore} and computer score is ${computerScore}`,
+      `You won the GAME! Your score is ${humanScore} and computer score is ${computerScore}`,
     );
-    alert(`You win the GAME! Your score is ${humanScore} and computer score is ${computerScore}`);
+    alert(`You won the GAME! Your score is ${humanScore} and computer score is ${computerScore}`);
   } else if (humanScore < computerScore) {
     console.log(
-      `You lose the GAME! Your score is ${humanScore} and computer score is ${computerScore}`,
+      `You lost the GAME! Your score is ${humanScore} and computer score is ${computerScore}`,
     );
-    alert(`You lose the GAME! Your score is ${humanScore} and computer score is ${computerScore}`);
+    alert(`You lost the GAME! Your score is ${humanScore} and computer score is ${computerScore}`);
   } else {
     console.log("It's a TIE! GG!");
     alert("It's a TIE! GG!");
