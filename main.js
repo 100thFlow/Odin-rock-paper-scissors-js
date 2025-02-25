@@ -13,14 +13,18 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let choice = prompt('Type one of "rock", "paper", or "scissors"').toLowerCase();
+  let choice = prompt('Type one of "rock", "paper", or "scissors"')?.toLowerCase();
 
   if (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors') {
-    alert('You can type only one of "rock", "paper", or "scissors"');
-    return getHumanChoice();
-  } else {
-    return choice;
+    if (choice === null || choice === '' || choice === undefined) {
+      alert('You canceled the Game!');
+      return null;
+    } else {
+      alert('You can type only one of "rock", "paper", or "scissors"');
+      return getHumanChoice();
+    }
   }
+  return choice;
 }
 
 function playGame() {
