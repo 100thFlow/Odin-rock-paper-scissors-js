@@ -50,6 +50,9 @@ function playGame() {
   for (let i = 1; i <= 5; i++) {
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
+    if (humanChoice === null || computerChoice === null) {
+      return;
+    }
     playRound(humanChoice, computerChoice);
   }
 
