@@ -60,11 +60,11 @@ function playGame() {
   }
 
   if (humanScore > computerScore) {
-    alert(`You win! Your score is ${humanScore} and computer score is ${computerScore}`);
+    alert(`You win the GAME! Your score is ${humanScore} and computer score is ${computerScore}`);
   } else if (humanScore < computerScore) {
-    alert(`You lose! Your score is ${humanScore} and computer score is ${computerScore}`);
+    alert(`You lose the GAME! Your score is ${humanScore} and computer score is ${computerScore}`);
   } else {
-    alert('Draw!');
+    alert("It's a TIE! GG!");
   }
 }
 
