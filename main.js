@@ -34,6 +34,7 @@ function playGame() {
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
       console.log('Draw!');
+      alert('Draw!');
     } else if (
       (humanChoice === 'rock' && computerChoice === 'scissors') ||
       (humanChoice === 'paper' && computerChoice === 'rock') ||
@@ -41,9 +42,11 @@ function playGame() {
     ) {
       humanScore++;
       console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+      alert(`You win! ${humanChoice} beats ${computerChoice}`);
     } else {
       computerScore++;
       console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+      alert(`You lose! ${computerChoice} beats ${humanChoice}`);
     }
   }
 
