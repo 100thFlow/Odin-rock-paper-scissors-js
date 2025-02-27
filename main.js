@@ -1,3 +1,17 @@
+const btn = document.querySelector('.button');
+const input = document.querySelector('input');
+btn.textContent = `Play ${+input.value} rounds`;
+
+input.addEventListener('input', () => {
+  const rounds = +input.value;
+  const isValid = rounds > 0 && !isNaN(rounds);
+
+  btn.textContent = isValid
+    ? `Play ${rounds} rounds`
+    : `Error! Enter value greater than 0`;
+  btn.disabled = !isValid;
+});
+
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 100);
 
@@ -13,7 +27,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let choice = prompt('Type one of "rock", "paper", or "scissors"')?.toLowerCase();
+  let choice = prompt(
+    'Type one of "rock", "paper", or "scissors"',
+  )?.toLowerCase();
 
   if (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors') {
     if (choice === null || choice === '' || choice === undefined) {
@@ -50,29 +66,33 @@ function playGame() {
     }
   }
 
-  for (let i = 1; i <= 5; i++) {
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    if (humanChoice === null || computerChoice === null) {
-      return;
-    }
-    playRound(humanChoice, computerChoice);
+  const humanChoice = getHumanChoice();
+  const computerChoice = getComputerChoice();
+
+  if (humanChoice === null || computerChoice === null) {
+    return;
   }
+
+  // playRound(humanChoice, computerChoice);
 
   if (humanScore > computerScore) {
     console.log(
       `You won the GAME! Your score is ${humanScore} and computer score is ${computerScore}`,
     );
-    alert(`You won the GAME! Your score is ${humanScore} and computer score is ${computerScore}`);
+    alert(
+      `You won the GAME! Your score is ${humanScore} and computer score is ${computerScore}`,
+    );
   } else if (humanScore < computerScore) {
     console.log(
       `You lost the GAME! Your score is ${humanScore} and computer score is ${computerScore}`,
     );
-    alert(`You lost the GAME! Your score is ${humanScore} and computer score is ${computerScore}`);
+    alert(
+      `You lost the GAME! Your score is ${humanScore} and computer score is ${computerScore}`,
+    );
   } else {
     console.log("It's a TIE! GG!");
     alert("It's a TIE! GG!");
   }
 }
 
-playGame();
+// playGame();
