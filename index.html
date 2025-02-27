@@ -1,12 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Papper Scissors!</title>
-</head>
-<body>
-  
-    <script src="./main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js" defer></script>
+    <title>Rock Papper Scissors!</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 class="heading">
+        <span class="rock">Rock </span><span class="paper">Paper </span
+        ><span class="scissors">Scissors</span>
+      </h1>
+      <p>How many rounds do you want to play against PC?</p>
+      <input type="number" min="1" step="1" value="1" required>
+      <button class="play button hide"></button>
+    </div>
+  </body>
 </html>
