@@ -110,3 +110,32 @@ p {
 input {
   flex-grow: 0;
 }
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.hide {
+  display: none;
+}
+
+.score {
+  font-size: 32px;
+}
+
+.player-score_container,
+.computer-score_container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.player-score_container p {
+  color: lightskyblue;
+}
+
+.computer-score_container p {
+  color: sandybrown;
+}
