@@ -23,12 +23,24 @@
 
         <div class="computer-score_container">
           <p class="score-text">Computer score</p>
-          <p class="score" id="playerScore">0</p>
+          <p class="score" id="computerScore">0</p>
         </div>
+      </div>
+      <p>Select gesture</p>
+      <div class="choice-buttons_container">
+        <button id="rock" class="button choice-button" value="rock">
+          Rock
+        </button>
+        <button id="paper" class="button choice-button" value="paper">
+          Paper
+        </button>
+        <button id="scissors" class="button choice-button" value="scissors">
+          Scissors
+        </button>
       </div>
       <p>How many rounds do you want to play against PC?</p>
       <input type="number" min="1" step="1" value="1" required>
-      <button class="play button"></button>
+      <button id="playButton" class="play button">Play 1 round</button>
     </div>
   </body>
 </html>

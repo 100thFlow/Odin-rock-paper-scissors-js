@@ -1,4 +1,5 @@
-const btn = document.querySelector('.button');
+const playButton = document.querySelector('#playButton');
+const choiceButtons = document.querySelectorAll('.choice-button');
 const input = document.querySelector('input');
 const scoreContainer = document.querySelector('.score-container');
 const roundParagraph = document.querySelector('#round');
@@ -8,7 +9,7 @@ const wrapper = document.querySelector('.wrapper');
 const round = 1;
 const playerScore = 3;
 const computerScore = 0;
-btn.textContent = `Play ${+input.value} rounds`;
+playButton.textContent = `Play ${+input.value} rounds`;
 
 function isRoundsValid(rounds) {
   if (rounds > 0 && !isNaN(rounds)) return true;
@@ -45,13 +46,13 @@ input.addEventListener('change', () => {
   // Prevent accepting invalid value if set through UI
   const isValid = isRoundsValid(rounds);
 
-  btn.textContent = isValid
+  playButton.textContent = isValid
     ? `Play ${rounds} rounds`
     : `Error! Enter value greater than 0`;
-  btn.disabled = !isValid;
+  playButton.disabled = !isValid;
 });
 
-btn.addEventListener('click', () => {
+playButton.addEventListener('click', () => {
   const rounds = +input.value;
   // Prevent accepting invalid values if set through the console
   const isValid = isRoundsValid(rounds);
