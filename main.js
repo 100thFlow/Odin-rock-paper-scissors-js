@@ -1,15 +1,65 @@
 const btn = document.querySelector('.button');
 const input = document.querySelector('input');
+const scoreContainer = document.querySelector('.score-container');
+const roundParagraph = document.querySelector('#round');
+const computerScoreParagraph = document.querySelector('#computerScore');
+const playerScoreParagraph = document.querySelector('#playerScore');
+const wrapper = document.querySelector('.wrapper');
+const round = 1;
+const playerScore = 3;
+const computerScore = 0;
 btn.textContent = `Play ${+input.value} rounds`;
 
-input.addEventListener('input', () => {
+function isRoundsValid(rounds) {
+  if (rounds > 0 && !isNaN(rounds)) return true;
+  return false;
+}
+
+function renderRound(round, playerScore, computerScore, roundText, detailText) {
+  roundParagraph.textContent = `Round ${round}`;
+  playerScoreParagraph.textContent = playerScore;
+  computerScoreParagraph.textContent = computerScore;
+}
+
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    round++;
+    console.log('Draw!');
+  } else if (
+    (humanChoice === 'rock' && computerChoice === 'scissors') ||
+    (humanChoice === 'paper' && computerChoice === 'rock') ||
+    (humanChoice === 'scissors' && computerChoice === 'paper')
+  ) {
+    humanScore++;
+    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+    alert(`You win! ${humanChoice} beats ${computerChoice}`);
+  } else {
+    computerScore++;
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    alert(`You lose! ${computerChoice} beats ${humanChoice}`);
+  }
+}
+
+input.addEventListener('change', () => {
   const rounds = +input.value;
-  const isValid = rounds > 0 && !isNaN(rounds);
+  // Prevent accepting invalid value if set through UI
+  const isValid = isRoundsValid(rounds);
 
   btn.textContent = isValid
     ? `Play ${rounds} rounds`
     : `Error! Enter value greater than 0`;
   btn.disabled = !isValid;
+});
+
+btn.addEventListener('click', () => {
+  const rounds = +input.value;
+  // Prevent accepting invalid values if set through the console
+  const isValid = isRoundsValid(rounds);
+  if (!isValid) alert(`You enter ${rounds}, but rounds must be greater than 0`);
+  else {
+    updateRound(round, playerScore, computerScore);
+    scoreContainer.classList.remove('hide');
+  }
 });
 
 function getComputerChoice() {
@@ -46,25 +96,6 @@ function getHumanChoice() {
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
-
-  function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-      console.log('Draw!');
-      alert('Draw!');
-    } else if (
-      (humanChoice === 'rock' && computerChoice === 'scissors') ||
-      (humanChoice === 'paper' && computerChoice === 'rock') ||
-      (humanChoice === 'scissors' && computerChoice === 'paper')
-    ) {
-      humanScore++;
-      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-      alert(`You win! ${humanChoice} beats ${computerChoice}`);
-    } else {
-      computerScore++;
-      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-      alert(`You lose! ${computerChoice} beats ${humanChoice}`);
-    }
-  }
 
   const humanChoice = getHumanChoice();
   const computerChoice = getComputerChoice();

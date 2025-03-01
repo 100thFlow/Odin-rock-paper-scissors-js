@@ -139,3 +139,34 @@ input {
 .computer-score_container p {
   color: sandybrown;
 }
+
+.choice-buttons_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.choice-button {
+  font-size: 20px;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background-color: lightpink;
+  border: 8px dotted lightcoral;
+  cursor: pointer;
+}
+
+#rock {
+  color: sandybrown;
+  background-color: dimgray;
+}
+
+#paper {
+  color: lightskyblue;
+  background-color: darkmagenta;
+}
+
+#scissors {
+  color: hotpink;
+  background-color: darkcyan;
+}
